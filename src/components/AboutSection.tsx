@@ -1,81 +1,56 @@
-import { Award, MapPin, Calendar } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
+import profilePhoto from "@/assets/profile-photo.png";
+import datacenterBg from "@/assets/datacenter-background.jpg";
 
 const AboutSection = () => {
   return (
-    <section id="about" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
+    <section 
+      id="about" 
+      className="py-24 relative"
+      style={{
+        backgroundImage: `url(${datacenterBg})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
+      {/* Dark overlay for readability */}
+      <div className="absolute inset-0 bg-black/75"></div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16 animate-fadeIn">
-            <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
-              About Me
-            </h2>
-            <div className="w-24 h-1 bg-gradient-primary mx-auto mb-8"></div>
-          </div>
-
-          <div className="grid lg:grid-cols-3 gap-8">
-            {/* Main Description */}
-            <div className="lg:col-span-2 space-y-6 animate-slideUp">
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Dynamic Network Engineer with over 4 years of experience in designing, 
-                deploying, and maintaining enterprise and carrier-grade networks. Adept 
-                in multi-vendor environments (Huawei, Cisco, Nokia), MPLS & CEN configurations, 
-                VPN provisioning, QoS enforcement, and advanced routing protocols.
-              </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Proven track record in resolving connectivity issues, scaling infrastructure, 
-                and ensuring SLA compliance. Recognized for excellence in Bharti Airtel's 
-                CSR Microwave Migration Project (Employee of the Month, Nov 2024).
-              </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Passionate about network optimization, automation, and staying current 
-                with emerging technologies in the telecommunications industry.
-              </p>
+          <h2 className="text-4xl font-bold text-white mb-16">
+            About Me
+          </h2>
+          
+          <div className="grid lg:grid-cols-3 gap-12 items-center">
+            {/* Content - Takes up 2/3 of the width */}
+            <div className="lg:col-span-2">
+              <div className="text-lg text-gray-300 leading-relaxed space-y-6">
+                <p className="text-xl font-semibold text-white mb-4">
+                  Dynamic Network Engineer with over 4.6+ years of experience designing, deploying, 
+                  and maintaining enterprise and carrier-grade networks.
+                </p>
+                
+                <p>
+                  Skilled with Huawei, Cisco, Nokia routers, MPLS, CEN, VPN provisioning, 
+                  QoS enforcement, and advanced routing protocols. Recognized for excellence 
+                  in Bharti Airtel's CSR Microwave Migration Project (Employee of the Month, Nov 2024).
+                </p>
+              </div>
             </div>
-
-            {/* Quick Facts */}
-            <div className="space-y-4 animate-slideUp">
-              <Card className="shadow-soft hover:shadow-medium transition-smooth">
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-4">
-                    <div className="p-3 bg-gradient-primary rounded-lg">
-                      <MapPin className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-foreground">Location</h3>
-                      <p className="text-muted-foreground">Chennai, India</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="shadow-soft hover:shadow-medium transition-smooth">
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-4">
-                    <div className="p-3 bg-gradient-primary rounded-lg">
-                      <Calendar className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-foreground">Experience</h3>
-                      <p className="text-muted-foreground">4.6+ Years</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="shadow-soft hover:shadow-medium transition-smooth">
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-4">
-                    <div className="p-3 bg-gradient-primary rounded-lg">
-                      <Award className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-foreground">Recognition</h3>
-                      <p className="text-muted-foreground">Employee of the Month</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+            
+            {/* Profile Photo - Takes up 1/3 of the width */}
+            <div className="lg:col-span-1 flex justify-center lg:justify-end">
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-primary rounded-full blur-2xl opacity-30 scale-110"></div>
+                <div className="relative w-64 h-64 lg:w-80 lg:h-80 rounded-full overflow-hidden shadow-strong border-4 border-white/20">
+                  <img
+                    src={profilePhoto}
+                    alt="ABIJIN PB - Network Engineer"
+                    className="w-full h-full object-cover hover:scale-105 transition-smooth duration-700"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
