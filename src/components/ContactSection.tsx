@@ -1,38 +1,7 @@
-import { useState } from "react";
-import { Mail, Phone, MapPin, Linkedin, Send, ExternalLink } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, ExternalLink } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/hooks/use-toast";
 
 const ContactSection = () => {
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Create mailto link with form data
-    const subject = `Portfolio Contact from ${formData.name}`;
-    const body = `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`;
-    const mailtoLink = `mailto:abijinpb@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    
-    window.location.href = mailtoLink;
-    
-    toast({
-      title: "Email client opened",
-      description: "Your default email client should open with the message pre-filled.",
-    });
-    
-    // Reset form
-    setFormData({ name: "", email: "", message: "" });
-  };
 
   const contactInfo = [
     {
@@ -83,10 +52,10 @@ const ContactSection = () => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="max-w-2xl mx-auto">
             {/* Contact Information */}
-            <div className="space-y-6 animate-fadeIn" style={{ animationDelay: '200ms' }}>
-              <h3 className="text-2xl font-semibold text-white mb-8">
+            <div className="space-y-6 animate-fadeIn">
+              <h3 className="text-2xl font-semibold text-white mb-8 text-center">
                 Contact Information
               </h3>
               
@@ -124,72 +93,6 @@ const ContactSection = () => {
                   </CardContent>
                 </Card>
               ))}
-            </div>
-
-            {/* Contact Form */}
-            <div className="animate-fadeIn" style={{ animationDelay: '400ms' }}>
-              <Card className="bg-white/5 backdrop-blur-sm border-white/10 hover:border-corporate-blue-light/30 transition-all duration-500 hover:shadow-glow">
-                <CardContent className="p-8">
-                  <h3 className="text-2xl font-semibold text-white mb-6">
-                    Send a Message
-                  </h3>
-                  
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div>
-                      <Label htmlFor="name" className="text-gray-300 font-medium">
-                        Full Name
-                      </Label>
-                      <Input
-                        id="name"
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="mt-2 bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-corporate-blue-light focus:ring-corporate-blue-light/20"
-                        placeholder="Your full name"
-                        required
-                      />
-                    </div>
-                    
-                    <div>
-                      <Label htmlFor="email" className="text-gray-300 font-medium">
-                        Email Address
-                      </Label>
-                      <Input
-                        id="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="mt-2 bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-corporate-blue-light focus:ring-corporate-blue-light/20"
-                        placeholder="your.email@example.com"
-                        required
-                      />
-                    </div>
-                    
-                    <div>
-                      <Label htmlFor="message" className="text-gray-300 font-medium">
-                        Message
-                      </Label>
-                      <Textarea
-                        id="message"
-                        value={formData.message}
-                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        className="mt-2 min-h-[120px] bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-corporate-blue-light focus:ring-corporate-blue-light/20"
-                        placeholder="Tell me about your project, opportunity, or just say hello..."
-                        required
-                      />
-                    </div>
-                    
-                    <Button 
-                      type="submit" 
-                      variant="hero" 
-                      size="lg" 
-                      className="w-full group shadow-strong hover:shadow-glow transition-all duration-300"
-                    >
-                      <Send className="group-hover:translate-x-1 transition-transform duration-300" />
-                      Send Message
-                    </Button>
-                  </form>
-                </CardContent>
-              </Card>
             </div>
           </div>
         </div>
