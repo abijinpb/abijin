@@ -15,47 +15,62 @@ const ProjectsSection = () => {
           </div>
 
           <Card className="shadow-medium hover:shadow-strong transition-smooth animate-scaleIn max-w-2xl mx-auto">
-            <CardContent className="p-12 text-center">
-              <div className="mb-8">
-                <div className="w-24 h-24 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Folder className="w-12 h-12 text-white" />
-                </div>
-                <h3 className="text-2xl font-semibold text-foreground mb-4">
-                  Projects Coming Soon
+            <CardContent className="p-8">
+              <div className="mb-8 text-center">
+                <h3 className="text-2xl font-bold text-foreground mb-4">
+                  MPLS Backbone Lab – OSPF + iBGP + eBGP (EVE-NG)
                 </h3>
-                <p className="text-lg text-muted-foreground leading-relaxed max-w-md mx-auto">
-                  Currently working on documenting and showcasing key network infrastructure 
-                  projects and implementations. This section will be updated with detailed 
-                  case studies and technical achievements.
-                </p>
-              </div>
-              
-              <div className="space-y-4 text-muted-foreground">
-                <div className="flex items-center justify-center gap-3">
-                  <ArrowRight className="w-5 h-5 text-primary" />
-                  <span>MPLS Network Deployment Projects</span>
-                </div>
-                <div className="flex items-center justify-center gap-3">
-                  <ArrowRight className="w-5 h-5 text-primary" />
-                  <span>Enterprise VPN Implementations</span>
-                </div>
-                <div className="flex items-center justify-center gap-3">
-                  <ArrowRight className="w-5 h-5 text-primary" />
-                  <span>Network Automation Scripts</span>
-                </div>
-                <div className="flex items-center justify-center gap-3">
-                  <ArrowRight className="w-5 h-5 text-primary" />
-                  <span>Infrastructure Optimization Case Studies</span>
+                <div className="mb-6">
+                  <img 
+                    src="https://raw.githubusercontent.com/abijinpb/mpls-service-provider-lab/main/mpls-lab-configurations.png"
+                    alt="MPLS Lab Topology"
+                    className="w-full max-w-2xl mx-auto rounded-lg shadow-medium"
+                  />
                 </div>
               </div>
 
-              <div className="mt-8">
-                <Button 
-                  variant="outline" 
-                  className="hover:bg-gradient-primary hover:text-white transition-smooth"
-                >
-                  Stay Updated
-                </Button>
+              <div className="text-left max-w-3xl mx-auto space-y-6">
+                <div>
+                  <h4 className="text-lg font-semibold text-foreground mb-3">Description:</h4>
+                  <p className="text-muted-foreground leading-relaxed">
+                    A service-provider style MPLS backbone lab built in <strong>EVE-NG</strong> with Cisco IOS. 
+                    It connects two customer networks via PE / P core routers using:
+                  </p>
+                  <ul className="list-disc list-inside mt-3 text-muted-foreground space-y-1 ml-4">
+                    <li><strong>OSPF</strong> for the core IGP</li>
+                    <li><strong>eBGP</strong> between customer and provider</li>
+                    <li><strong>iBGP</strong> among provider edges</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="text-lg font-semibold text-foreground mb-3">Highlights:</h4>
+                  <div className="space-y-3">
+                    <div className="flex items-start gap-3">
+                      <ArrowRight className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span className="text-muted-foreground">Designed full MPLS-style topology with 7 routers + 2 switches</span>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <ArrowRight className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span className="text-muted-foreground">Configured OSPF, eBGP, and iBGP</span>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <ArrowRight className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                      <span className="text-muted-foreground">Verified customer site-to-site reachability via ping, traceroute, and route checks</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="text-center pt-4">
+                  <p className="text-sm text-muted-foreground mb-4">📂 <strong>Project Files on GitHub:</strong></p>
+                  <Button 
+                    variant="default"
+                    className="bg-gradient-primary hover:shadow-medium transition-smooth"
+                    onClick={() => window.open('https://github.com/abijinpb/mpls-service-provider-lab', '_blank')}
+                  >
+                    👉 View Repository
+                  </Button>
+                </div>
               </div>
             </CardContent>
           </Card>
